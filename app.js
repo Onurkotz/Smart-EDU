@@ -4,6 +4,8 @@ const mongoose = require("mongoose");
 const ejs = require("ejs");
 const pageRoute = require("./routes/pageRoute");
 const courseRoute = require("./routes/courseRoute");
+const categoryRoute = require("./routes/categoryRoute");
+const userRoute = require("./routes/userRoute");
 
 const app = express();
 // Connect database
@@ -26,6 +28,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // ROUTES
 app.use("/", pageRoute);
 app.use("/courses", courseRoute);
+app.use("/category", categoryRoute);
+app.use("/user", userRoute);
 
 const port = 3000;
 app.listen(port, () => {

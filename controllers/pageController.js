@@ -9,3 +9,9 @@ exports.getAbout = (req, res) => {
     page_name: "about",
   });
 };
+
+exports.getRegisterPAge = (req, res) => {
+  res.status(200).render("register", {
+    page_name: "register",
+  });
+};
