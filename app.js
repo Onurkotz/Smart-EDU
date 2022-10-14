@@ -1,6 +1,7 @@
 const express = require("express");
-const bodyParser = require('body-parser');
+const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const session = require("express-session");
 const ejs = require("ejs");
 const pageRoute = require("./routes/pageRoute");
 const courseRoute = require("./routes/courseRoute");
@@ -20,12 +21,25 @@ mongoose
 // Template Engine
 app.set("view engine", "ejs");
 
+global.userIN = null;
+
 // MIDDLEWARES
 app.use(express.static("public"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(
+  session({
+    secret: "my_portal",
+    resave: false,
+    saveUninitialized: true,
+  })
+);
 
 // ROUTES
+app.use("*", (req, res, next) => {
+  userIN = req.session.userID;
+  next();
+});
 app.use("/", pageRoute);
 app.use("/courses", courseRoute);
 app.use("/category", categoryRoute);
