@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const session = require("express-session");
+const MongoStore = require("connect-mongo");
 const ejs = require("ejs");
 const pageRoute = require("./routes/pageRoute");
 const courseRoute = require("./routes/courseRoute");
@@ -32,6 +33,7 @@ app.use(
     secret: "my_portal",
     resave: false,
     saveUninitialized: true,
+    store: MongoStore.create({ mongoUrl: "mongodb://localhost/smartEduDB" }),
   })
 );
 
