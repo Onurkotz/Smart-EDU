@@ -21,6 +21,12 @@ const UserSchema = new Schema({
     type: String,
     require: true,
   },
+  courses: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Course",
+    },
+  ],
 });
 
 UserSchema.pre("save", function (next) {
