@@ -17,7 +17,13 @@
           <div class="col-lg-12 blog-post-single">
             <div class="blog-author">
               <div class="author-bio">
-                <h3 class="author_name"> You choose <%= user.courses.length %> course/s.</h3>
+                <% if(user.courses.length <= 0) { %>
+                <h3 class="author_name">You did not choose any course.</h3>
+                <% } else { %>
+                <h3 class="author_name">
+                  You choose <%= user.courses.length %> course/s.
+                </h3>
+                <% } %>
               </div>
             </div>
           </div>
@@ -33,12 +39,24 @@
               </div>
               <div class="course-br">
                 <div class="course-title">
-                  <h2><a href="#" title=""> <%= user.courses[i].name %> </a></h2>
+                  <h2>
+                    <a href="#" title=""> <%= user.courses[i].name %> </a>
+                  </h2>
                 </div>
                 <div class="course-desc">
                   <p>
-                    <%= user.courses[i].description %>
+                    <%= user.courses[i].description.substring(0, 75) + '...' %>
                   </p>
+                  <form method="POST" action="/courses/leave">
+                    <input
+                      type="hidden"
+                      name="course_id"
+                      value="<%= user.courses[i]._id %>"
+                    />
+                    <button class="btn btn-danger btn-lg text-white">
+                      Leave
+                    </button>
+                  </form>
                 </div>
               </div>
             </div>
@@ -102,7 +120,7 @@
                   </h2>
                 </div>
                 <div class="course-desc">
-                  <p><%= courses[i].description %></p>
+                  <p><%= courses[i].description.substring(0, 75) + '...' %></p>
                 </div>
               </div>
             </div>

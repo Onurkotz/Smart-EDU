@@ -10,5 +10,6 @@ router
 router.route("/").get(courseController.getAllCourses);
 router.route("/:slug").get(courseController.getCourse);
 router.route("/join").post(courseController.joinCourse);
+router.route("/leave").post(courseController.leaveCourse);
 
 module.exports = router;
