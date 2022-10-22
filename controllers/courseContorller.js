@@ -110,3 +110,15 @@ exports.leaveCourse = async (req, res) => {
     });
   }
 };
+
+exports.deleteCourse = async (req, res) => {
+  try {
+    await Course.findOneAndRemove({slug: req.params.slug})
+    res.status(200).redirect("/user/dashboard");
+  } catch (error) {
+    res.status(400).json({
+      status: "fail",
+      error,
+    });
+  }
+};
