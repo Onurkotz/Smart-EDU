@@ -1,9 +1,15 @@
 // const nodemailer = require("nodemailer"); For sending mail.
+const User = require("../models/User");
+const Course = require("../models/Course");
 
-exports.getHome = (req, res) => {
+exports.getHome = async (req, res) => {
   console.log(req.session.userID);
+  const user = await User.find({ role: "Student" });
+  const courses = await Course.find();
   res.status(200).render("index", {
     page_name: "index",
+    user,
+    courses,
   });
 };
 
