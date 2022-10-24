@@ -84,3 +84,17 @@ exports.deleteUser = async (req, res) => {
     });
   }
 };
+
+exports.deleteCategory = async (req, res) => {
+  try {
+    await Category.findByIdAndRemove(req.params.id);
+   
+
+    res.status(200).redirect("/user/dashboard");
+  } catch (error) {
+    res.status(400).json({
+      status: "fail",
+      error,
+    });
+  }
+};
