@@ -4,12 +4,16 @@ const Course = require("../models/Course");
 
 exports.getHome = async (req, res) => {
   console.log(req.session.userID);
-  const user = await User.find({ role: "Student" });
-  const courses = await Course.find();
+  const courseLast2 = await Course.find().sort("-createdAt").limit(2);
+  const userStudents = await User.countDocuments({ role: "Student" });
+  const userTeachers = await User.countDocuments({ role: "Teacher" });
+  const allCourses = await Course.countDocuments();
   res.status(200).render("index", {
     page_name: "index",
-    user,
-    courses,
+    courseLast2,
+    userStudents,
+    userTeachers,
+    allCourses,
   });
 };
 

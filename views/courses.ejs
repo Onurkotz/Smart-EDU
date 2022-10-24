@@ -35,10 +35,12 @@
                       </h2>
                     </div>
                     <div class="course-desc">
-                      <p><%= courses[i].description.substring(0, 100) + '...' %></p>
+                      <p>
+                        <%= courses[i].description.substring(0, 100) + '...' %>
+                      </p>
                     </div>
                   </div>
-                 <!--  <div class="course-meta-bot">
+                  <!--  <div class="course-meta-bot">
                     <ul>
                       <li>
                         <i class="fa fa-user" aria-hidden="true"></i><%= courses[i].user.name %>
@@ -67,7 +69,11 @@
                       placeholder="Search"
                       type="text"
                     />
-                    <button id="searchsubmit" value="Search" type="submit"></button>
+                    <button
+                      id="searchsubmit"
+                      value="Search"
+                      type="submit"
+                    ></button>
                   </div>
                 </form>
               </div>

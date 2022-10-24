@@ -41,20 +41,17 @@ exports.getAllCourses = async (req, res) => {
     }
 
     const courses = await Course.find({
-      $or:[
-        {name: { $regex: '.*' + filter.name + '.*', $options: 'i'}},
-        {category: filter.category}
-      ]
+      $or: [
+        { name: { $regex: ".*" + filter.name + ".*", $options: "i" } },
+        { category: filter.category },
+      ],
     }).sort("-createdAt");
 
- 
-    
     const categories = await Category.find();
     res.status(200).render("courses", {
       courses,
       categories,
       page_name: "courses",
-      
     });
   } catch (error) {
     res.status(400).json({
@@ -117,7 +114,7 @@ exports.leaveCourse = async (req, res) => {
 
 exports.deleteCourse = async (req, res) => {
   try {
-    await Course.findOneAndRemove({slug: req.params.slug})
+    await Course.findOneAndRemove({ slug: req.params.slug });
     res.status(200).redirect("/user/dashboard");
   } catch (error) {
     res.status(400).json({
@@ -129,7 +126,7 @@ exports.deleteCourse = async (req, res) => {
 
 exports.updateCourse = async (req, res) => {
   try {
-    const course = await Course.findOne({slug: req.params.slug});
+    const course = await Course.findOne({ slug: req.params.slug });
     course.name = req.body.name;
     course.description = req.body.description;
     course.category = req.body.category;
