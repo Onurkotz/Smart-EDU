@@ -46,11 +46,15 @@ exports.getAllCourses = async (req, res) => {
         {category: filter.category}
       ]
     }).sort("-createdAt");
+
+ 
+    
     const categories = await Category.find();
     res.status(200).render("courses", {
       courses,
       categories,
       page_name: "courses",
+      
     });
   } catch (error) {
     res.status(400).json({
