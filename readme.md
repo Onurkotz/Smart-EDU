@@ -21,11 +21,11 @@ MongoDB Atlas is used as the database cloud. For hosting, the project is pushed 
 
 <hr>
 
-This project includes teacher, student and admin page. Only teachers and admin can create a course. Students are not authorized to create a course. Admin can create categories for courses.
+This project includes teacher, student and admin page. Only teachers can create a course. Students are not authorized to create a course. Admin can create categories for courses.
 
 When a student joins a course, that course is listed on the student's dashboard page. Likewise when a teacher creates a course, that course is listed on the teacher's dashboard page.
 
-Admin can control users and categories. Creates and removes them. When admin removes a user with the teacher role, course created by that teacher is removed.
+Admin can control users and categories. Creates categories and removes users and categories. When admin removes a user with the teacher role, course created by that teacher is removed.
 
 <hr>
 
