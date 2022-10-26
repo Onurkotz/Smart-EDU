@@ -6,7 +6,7 @@ This is a Node.js backend project. This includes express.js, method-override and
 
 <hr>
 
-`npm i express method-override mongoose connect-mongo connect-flash bcrypt express-session express-validator node-mailer-slugify`
+`npm i express method-override mongoose connect-mongo connect-flash bcrypt express-session express-validator node-mailer slugify`
 
  <hr>
 
