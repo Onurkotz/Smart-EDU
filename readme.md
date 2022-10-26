@@ -16,7 +16,7 @@ MongoDB Atlas is used as the database cloud. For hosting, the project is pushed 
 
 <hr>
 
-<!-- https://clean-blog-ok.herokuapp.com/ -->
+https://smarteduportalkoc.herokuapp.com/
 <br><br>
 
 <hr>
