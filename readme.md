@@ -1,8 +1,8 @@
-# Clean Blog
+# Smart Edu Portal Node.js Project
 
 ## Project Information
 
-This is a Node.js backend project. This includes express.js, method-override and mongoose as dependencies. The template is taken from html.design. The development dependency is Nodemon.
+This is a Node.js backend project. The template is taken from html.design. The development dependency is Nodemon.
 
 <hr>
 
