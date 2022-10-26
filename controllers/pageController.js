@@ -60,15 +60,15 @@ exports.getContactPage = (req, res) => {
     port: 465,
     secure: true, // true for 465, false for other ports
     auth: {
-      user: "onurkottz@gmail.com", // gmail account
-      pass: "ARVR191919", // gmail password
+      user: "@gmail.com", // gmail account
+      pass: "*", // gmail password
     },
   });
 
   // send mail with defined transport object
   let info = await transporter.sendMail({
-    from: '"Smart Edu Portal Contact Form" <onurkottz@gmail.com>', // sender address
-    to: "ounurkouc@gmail.com", // list of receivers
+    from: '"Smart Edu Portal Contact Form" <@gmail.com>', // sender address
+    to: "@gmail.com", // list of receivers
     subject: "Smart Edu Portal New Message ✔", // Subject line
     html: outputMessage, // html body
   });

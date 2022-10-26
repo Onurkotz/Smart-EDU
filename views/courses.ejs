@@ -18,6 +18,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-9 blog-post-single">
+            
             <div class="row">
               <% for (i = 0; i < courses.length; i ++) { %>
 
@@ -58,6 +59,7 @@
           </div>
           <!-- end col -->
           <div class="col-lg-3 col-12 right-single">
+            <h3 class="mb-4">Total Course: <%= courses.length %></h3>
             <div class="widget-search">
               <div class="site-search-area">
                 <form method="GET" id="site-searchform" action="/courses">
